@@ -148,7 +148,7 @@ public class AgentClient extends BaseClient {
 
     public Person getPerson(Agent a)
             throws IOException {
-        String path = "/xapi/agents?agent=" + getDecoder().toJson(a.serialize());
+        String path = "/xAPI/agents?agent=" + getDecoder().toJson(a.serialize());
         String result = issueGet(path);
         return getDecoder().fromJson(result, Person.class);
     }

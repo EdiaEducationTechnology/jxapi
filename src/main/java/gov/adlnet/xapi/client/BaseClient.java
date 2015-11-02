@@ -106,7 +106,11 @@ public class BaseClient {
 
 	protected String issuePost(String path, String data)
 			throws java.io.IOException {
-        URL url = new URL(this._host.getProtocol(), this._host.getHost(),this._host.getPort() ,path);
+		String basePath = this._host.getPath() != null ? this._host.getPath() : "";
+		if (basePath.endsWith("/")) {
+			basePath = basePath.substring(0, basePath.length()-1);
+		}
+        URL url = new URL(this._host.getProtocol(), this._host.getHost(),this._host.getPort() ,basePath + path);
 		HttpURLConnection conn = initializePOSTConnection(url);
 		conn.setRequestMethod("POST");
 		OutputStreamWriter writer = new OutputStreamWriter(

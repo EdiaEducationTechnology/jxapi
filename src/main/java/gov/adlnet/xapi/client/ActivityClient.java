@@ -146,7 +146,7 @@ public class ActivityClient extends BaseClient {
 
 	public Activity getActivity(String activityId)
 			throws IOException {
-		String path = "/xapi/activities?activityId=" + activityId;
+		String path = "/xAPI/activities?activityId=" + activityId;
 		String result = issueGet(path);
 		return getDecoder().fromJson(result, Activity.class);
 	}
@@ -187,7 +187,7 @@ public class ActivityClient extends BaseClient {
     }
 
     public JsonArray getActivityProfiles(String activityId, String since) throws IOException {
-        String path = "/xapi/activities/profile?activityId=" + activityId;
+        String path = "/xAPI/activities/profile?activityId=" + activityId;
         if (since != null && since.length() > 0){
             path += ("&since=" + since);
         }
@@ -238,7 +238,7 @@ public class ActivityClient extends BaseClient {
 
     public JsonArray getActivityStates(String activityId, Agent agent, String registration, String since)
             throws IOException{
-        String path = String.format("/xapi/activities/state?activityId=%s&agent=%s", activityId,
+        String path = String.format("/xAPI/activities/state?activityId=%s&agent=%s", activityId,
                 getDecoder().toJson(agent.serialize()));
         if (registration != null && registration.length() > 0){
             path += ("&registration=" + registration);
@@ -252,7 +252,7 @@ public class ActivityClient extends BaseClient {
 
     public boolean deleteActivityStates(String activityId, Agent agent, String registration)
             throws IOException{
-        String path = String.format("/xapi/activities/state?activityId=%s&agent=%s", activityId,
+        String path = String.format("/xAPI/activities/state?activityId=%s&agent=%s", activityId,
                 getDecoder().toJson(agent.serialize()));
         if (registration != null && registration.length() > 0){
             path += ("&registration=" + registration);
