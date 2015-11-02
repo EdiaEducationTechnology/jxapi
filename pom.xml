@@ -4,7 +4,7 @@
 
 	<groupId>gov.adlnet.xapi</groupId>
 	<artifactId>xapi</artifactId>
-	<version>0.1.4</version>
+	<version>0.1.4-edia</version>
 	<packaging>jar</packaging>
 	<name>xAPI</name>
 	<description>
@@ -19,41 +19,32 @@
 		</license>
 	</licenses>
 	<scm>
-		<connection>scm:git:git://github.com/adlnet/jxapi.git</connection>
-		<developerConnection>scm:git:git@github.com:adlnet/jxapi.git</developerConnection>
-		<url>https://github.com/adlnet/jxapi</url>
+		<connection>scm:git:git@github.com:EdiaEducationTechnology/jxapi.git</connection>
+		<developerConnection>scm:git:git@github.com:EdiaEducationTechnology/jxapi.git</developerConnection>
+		<url>https://github.com/EdiaEducationTechnology/jxapi.git</url>
 		<tag>HEAD</tag>
 	</scm>
 	<issueManagement>
 		<system>GitHub</system>
 		<url>https://github.com/adlnet/jxapi/issues</url>
 	</issueManagement>
-    <repositories>
-        <repository>
-            <id>sonatype-nexus-snapshots</id>
-            <name>Sonatype Nexus Snapshots</name>
-            <url>http://oss.sonatype.org/content/repositories/snapshots</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
+	<repositories>
+		<repository>
+			<id>public</id>
+			<url>http://nexus.edia.nl/nexus/content/repositories/public</url>
+		</repository>
+	</repositories>
 
-    <distributionManagement>
-        <snapshotRepository>
-            <id>sonatype-nexus-snapshots</id>
-            <name>Sonatype Nexus Snapshots</name>
-            <url>http://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>sonatype-nexus-staging</id>
-            <name>Nexus Release Repository</name>
-            <url>http://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>	
+	<distributionManagement>
+		<snapshotRepository>
+			<id>public-snapshots</id>
+			<url>http://nexus.edia.nl/nexus/content/repositories/public-snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>public</id>
+			<url>http://nexus.edia.nl/nexus/content/repositories/public</url>
+		</repository>
+	</distributionManagement>
 	<profiles>
 		<profile>
 			<id>release-sign-artifacts</id>
@@ -85,22 +76,22 @@
 	</profiles>
 	<build>
 		<plugins>
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                </configuration>
-            </plugin>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -174,25 +165,25 @@
 			<version>4.7</version>
 			<scope>test</scope>
 		</dependency>
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.2.4</version>
-        </dependency>
-        <dependency>
-            <groupId>org.bouncycastle</groupId>
-            <artifactId>bcprov-jdk16</artifactId>
-            <version>1.46</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jetty.orbit</groupId>
-            <artifactId>javax.servlet</artifactId>
-            <version>3.0.0.v201112011016</version>
-        </dependency>
-        <dependency>
-            <groupId>com.liferay.org.apache.commons.fileupload</groupId>
-            <artifactId>com.liferay.org.apache.commons.fileupload</artifactId>
-            <version>6.2.0.1</version>
-        </dependency>
-    </dependencies>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk16</artifactId>
+			<version>1.46</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty.orbit</groupId>
+			<artifactId>javax.servlet</artifactId>
+			<version>3.0.0.v201112011016</version>
+		</dependency>
+		<dependency>
+			<groupId>com.liferay.org.apache.commons.fileupload</groupId>
+			<artifactId>com.liferay.org.apache.commons.fileupload</artifactId>
+			<version>6.2.0.1</version>
+		</dependency>
+	</dependencies>
 </project>
